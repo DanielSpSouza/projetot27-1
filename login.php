@@ -27,16 +27,17 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN USUARIOS</title>
-    <link rel="stylesheet" href="./stylecadastra.css">
+    <link rel="stylesheet" href="stylecadastra.css">
 </head>
 <body>
     <div class="container">
     <!-- script para mostrar senha-->
     <script>
         function mostrarsenha(){
-            var tipo = document.getElemenById("senha");
+            var tipo = document.getElementById("senha");
             if(tipo.type == "password"){
-                tipo.type ="text";
+                tipo.type ="text" ;
+
             }
             else{
                 tipo.type = "password";
@@ -49,7 +50,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             <h1>LOGIN DE USUARIO</h1>
             <input type="text" name="nome" id="nome" placeholder="Nome">
             <p></p>
-            <input id="password" name="password" placeholder="Senha">
+            <input type="password" id="senha" name="password" placeholder="Senha">
             <img id="olinho" onclick="mostrarsenha()" src="assets/eye.svg">
             <p></p>
             <input type="submit" name="login" value="LOGIN">
