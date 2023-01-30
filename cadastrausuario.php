@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     else{
         $sql = "INSERT INTO usuarios (usu_nome, usu_senha) VALUES('$nome', '$senha')";
         mysqli_query($link,$sql);
-        header("Location: listausuarios.php");
+        header("Location: listausuario.php");
     }
 
 }
