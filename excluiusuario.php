@@ -38,9 +38,10 @@ while($tbl = mysqli_fetch_array($resultado)){
         <p>GOSTARIA DE EXCLUIR O USUARIO <b><?=$nome?></b>
         <form action="excluiusuario.php" method="post">
             <input type="hidden" name="id" value="<?=$id?>">
-            <input type="submit" value="SIM">
+            <input type="submit" value="OPA">
+
         </form>
-        <a href="listausuario.php"><button id="btnao">NÃO</button></a>
+        <a href="listausuario.php"><button id="btnao">NOPE</button></a>
     </div>
     
 </body>
