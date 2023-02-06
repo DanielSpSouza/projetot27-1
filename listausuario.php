@@ -38,7 +38,8 @@ $resultado = mysqli_query($link, $sql);
                         <!-- Ao clicar no botão ele já trará o id do usuario para a página do alterar -->
                         <td><a href="alterausuario.php?id=<?= $tbl[0]?>"><input type="button" value="ALTERAR"></a></td>
                          <!-- Ao clicar no botão ele já trará o id do usuario para a página do excluir -->
-                        <td><a href="excluiusuario.php?id=<?=$tbl[0]?>"><input type="button" value="EXCLUIR"></a></td>
+                        <!-- <td><a href="excluiusuario.php?id=<//?=$tbl[0]?>"><input type="button" value="EXCLUIR"></a></td> -->
+                        <td><?=$tbl[3]?></td>
                     </tr>
                     <?php
                 }
