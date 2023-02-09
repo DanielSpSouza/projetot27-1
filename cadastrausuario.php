@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo"<script>window.alert('USUARIO JÁ CADASTRADO!');</script>";
     }
     else{
-        $sql = "INSERT INTO usuarios (usu_nome, usu_senha) VALUES('$nome', '$senha')";
+        $sql = "INSERT INTO usuarios (usu_nome, usu_senha, usu_ativo) VALUES('$nome', '$senha','n')";
         mysqli_query($link,$sql);
         header("Location: listausuario.php");
     }
@@ -52,9 +52,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <form action="cadastrausuario.php" method="POST">
         <h1>CADASTRO DE USUARIOS</h1>
-        <input type="text" name="nome" id="nome" placeholder="NOME">
+        <input type="text" name="nome" id="nome" placeholder="NOME" required>
         <p></p>
-        <input type="password" id="senha" name="senha" placeholder="SENHA">
+        <input type="password" id="senha" name="senha" placeholder="SENHA" required>
         <img id="olinho" onclick="mostrasenha()" src="assets/eye.svg">
         <p></p>
         <input type="submit" name="cadastrar" id="cadastrar" value="CADASTRAR">

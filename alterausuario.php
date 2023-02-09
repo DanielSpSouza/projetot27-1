@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 #Coletando ID via Link(URL) exemplo alterausuario.php?id=2
 $id = $_GET['id'];
-$sql = "SELECT * FROM usuarios WHERE usu_id = '$id'";
+$sql = "SELECT * FROM usuarios WHERE usu_id = $id";
 $resultado = mysqli_query($link, $sql);
 while($tbl = mysqli_fetch_array($resultado)){
     $nome = $tbl[1];
@@ -51,8 +51,8 @@ while($tbl = mysqli_fetch_array($resultado)){
         <br></br>
         <label>Status: <?=$check = ($ativo == 's')?"ATIVO":"INATIVO";?></label>
         <br></br>
-        <input type="radio" name="ativo" value="s">ATIVAR<br>
-        <input type="radio" name="ativo" value="n">DESATIVAR
+        <input type="radio" name="ativo" value="s" <?=$ativo == "s"? "checked":""?>>ATIVO<br>
+        <input type="radio" name="ativo" value="n"<?=$ativo == "n"? "checked":""?>>INATIVO
 
         <input type="submit" value="SALVAR">
         </form>

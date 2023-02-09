@@ -7,6 +7,7 @@ include("conectadb.php");
 $sql = "SELECT * FROM usuarios";
 $resultado = mysqli_query($link, $sql);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +25,12 @@ $resultado = mysqli_query($link, $sql);
 <body>
     <a href="homesistema.html"><input type="button" id="menuhome" value="HOME SISTEMA"></a>
     <div class="container">
+        
         <table border="1">
             <tr>
                 <th>NOME</th>
                 <th>ALTERAR DADOS</th>
-                <th>EXCLUIR USUARIO</th>
+                <th>ATIVO</th>
             </tr>
             <?php
                 while ($tbl = mysqli_fetch_array($resultado)){
@@ -39,7 +41,8 @@ $resultado = mysqli_query($link, $sql);
                         <td><a href="alterausuario.php?id=<?= $tbl[0]?>"><input type="button" value="ALTERAR"></a></td>
                          <!-- Ao clicar no botão ele já trará o id do usuario para a página do excluir -->
                         <!-- <td><a href="excluiusuario.php?id=<//?=$tbl[0]?>"><input type="button" value="EXCLUIR"></a></td> -->
-                        <td><?=$tbl[3]?></td>
+                        <td><?= $check = ($tbl[3] == "s")?"SIM":"NÃO"?></td>
+                        
                     </tr>
                     <?php
                 }

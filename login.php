@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
     #CONSULTA SQL PARA VERIFICAR USUARIO CADASTRADO
     #instrução de comunicação com o banco de dados
-    $sql = "SELECT COUNT(usu_id) FROM usuarios WHERE usu_nome = '$nome' AND usu_senha ='$password'";
+    $sql = "SELECT COUNT(usu_id) FROM usuarios WHERE usu_nome = '$nome' AND usu_senha ='$password' AND usu_ativo = 's'";
     #coleta o valor da consulta e cria um array para armazenar
     $resultado = mysqli_query($link,$sql);
     while($tbl = mysqli_fetch_array($resultado)){
