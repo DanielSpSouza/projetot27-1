@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 }
 
 
-#Coletando ID via Link(URL) exemplo alterausuario.php?id=2 TESTE DE ALTERÇÃO VIA GITHUB
+#Coletando ID via Link(URL) exemplo alterausuario.php?id=2
 $id = $_GET['id'];
 $sql = "SELECT * FROM usuarios WHERE usu_id = $id";
 $resultado = mysqli_query($link, $sql);
