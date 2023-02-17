@@ -40,7 +40,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <form action="listausuario.php" method="post">
         <input type="radio" name="ativo" value="s" required onclick="submit()" <?=$ativo=='s'?"checked":""?>>ATIVOS<br>
         <input type="radio" name="ativo" value="n" required onclick="submit()" <?=$ativo=='n'?"checked":""?>>INATIVOS
-
     </form>
     <div class="container">
         

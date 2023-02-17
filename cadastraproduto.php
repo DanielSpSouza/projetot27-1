@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $preco = $_POST["preco"];    
 
 
-$sql="INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco) VALUES('$nome', '$descricao', '$quantidade', '$preco')";
+$sql="INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's')";
 mysqli_query($link,$sql);
 header("Location: listaproduto.php");
 exit();
@@ -27,7 +27,7 @@ exit();
 <body>
         <a href="homesistema.html"><input type="button" id="menuhome" value="HOME SISTEMA"></a>
         <div>
-            <form action="cadastraproduto.php">
+            <form action="cadastraproduto.php" method="post">
                 <label>NOME</label>
                 <input type="text" name="nome">
                 <br></br>
@@ -42,9 +42,9 @@ exit();
                 <br></br>
 
                 <!-- BLOCO DE CÓDIGO NOVO -->
-                <label>IMAGEM I</label>
+                <!-- <label>IMAGEM I</label>
                 <input type="file" name="file1" id="img1" onchange="foot1()">
-                <img src="img/semimg.gif" width="50px" id="foto1a">
+                <img src="img/semimg.gif" width="50px" id="foto1a"> -->
 
                 <input type="submit" value="CADASTRAR">
 
