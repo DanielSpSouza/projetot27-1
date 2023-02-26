@@ -22,10 +22,10 @@ $sql = "SELECT * FROM produtos WHERE pro_id = $id";
 $resultado = mysqli_query($link, $sql);
 
 while($tbl = mysqli_fetch_array($resultado)){
-    $nome = $tbl[4];
-    $descricao = $tbl[1];
-    $quantidade = $tbl[2];
-    $preco = $tbl[3];
+    $nome = $tbl[1];
+    $descricao = $tbl[2];
+    $quantidade = $tbl[3];
+    $preco = $tbl[4];
     $ativo = $tbl[5];
 
 }
