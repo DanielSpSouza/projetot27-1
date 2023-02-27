@@ -1,20 +1,24 @@
 <?php
+#Traz arquivo de conexão do banco
 include("conectadb.php");
+#Carrega a Página trazendo produtos com s (Produtos ATIVOS)
 $sql = "SELECT * FROM produtos WHERE pro_ativo = 's'";
 $resultado = mysqli_query($link, $sql);
-$ativo = 's';
+#Atribui s para variavel ativo
+$ativo = "s";
+#Aguarda ação POST na página
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $ativo = $_POST['ativo'];
+    #Confere se o POST da Página foi s
+    #Se s traga produtos ativos senão traga inativos
     if($ativo == 's'){
         $sql = "SELECT * FROM produtos WHERE pro_ativo = 's'";
         $resultado = mysqli_query($link, $sql);
-        
          
     }
     else{
         $sql = "SELECT * FROM produtos WHERE pro_ativo = 'n'";
         $resultado = mysqli_query($link, $sql);
-        
     }
 }
 
@@ -33,8 +37,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <body>
     <a href="homesistema.html"><input type="button" id="menuhome" value="HOME SISTEMA"></a>
     <form action="listaproduto.php" method="post">
-        <input type="radio" name="ativo" value='s' required onclick="submit()" <?=$ativo=='s'?"checked":"";?>>ATIVOS<br>
-        <input type="radio" name="ativo" value='n' required onclick="submit()" <?=$ativo=='n'?"checked":"";?>>INATIVOS
+        <!-- Botões que validam se o produto é listado somente ativos ou inativos-->
+        <!-- onclick="submit()" é um javascript que já faz um submit na página usando o navegador como recurso -->
+        <!-- <//?=$ativo== Valida se o radio foi acionado (checked) e mantém a escolha se não ele traz em branco-->
+        <input type="radio" name="ativo" value='s' required onclick="submit()" <?=$ativo=='s'?"checked":""?>>ATIVOS<br>
+        <input type="radio" name="ativo" value='n' required onclick="submit()" <?=$ativo=='n'?"checked":""?>>INATIVO
     </form>
     <div class="container">
         <table border="1">
@@ -48,18 +55,18 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                     <th>ATIVO</th>
             </tr>
             <?php
+                #Preenchimento da tabela com os dados do banco
                 while($tbl = mysqli_fetch_array($resultado)){
                     ?>
                     <tr>
                         <td><?= $tbl[0]?></td>
+                        <td><?= $tbl[4]?></td>
                         <td><?= $tbl[1]?></td>
                         <td><?= $tbl[2]?></td>
-                        <td><?= $tbl[3]?></td>
-                        
-                        <!-- number format traz o formato com 2 casas após a virgula e trocando . por , na apresentacao -->
-                        <td>R$ <?= number_format($tbl[4],2,',', '.')?></td>
-                       
+                        <!-- linha abaixo converte formato da $tbl[3] usando 2 casas após a virgula e aplicando , ao lugar de ponto -->
+                        <td>R$ <?= number_format($tbl[3],2,',','.')?></td>
                         <td><a href="alteraproduto.php?id=<?= $tbl[0]?>"><input type="button" value="ALTERAR"></a></td>
+                        <!-- tbl[5] verifica se é s que está vindo do banco de dados, se sim. Escreva SIM senão escreva NÃO -->
                         <td><?= $check = ($tbl[5] == 's')?"SIM":"NÃO"?></td>
                     </tr>
                     <?php

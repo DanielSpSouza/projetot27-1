@@ -21,7 +21,7 @@ exit();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="newestilo.css">
+    <link rel="stylesheet" href="estilo.css">
     <title>CADASTRAR PRODUTOS</title>
 </head>
 <body>
@@ -42,13 +42,20 @@ exit();
                 <br></br>
 
                 <!-- BLOCO DE CÓDIGO NOVO -->
-                <!-- <label>IMAGEM I</label>
-                <input type="file" name="file1" id="img1" onchange="foot1()">
-                <img src="img/semimg.gif" width="50px" id="foto1a"> -->
+                
+                <label>IMAGEM</label>
+                <input type="file" name="foto1" id="img1" onchange="foto1()">
+                <img src="img/semfoto.png" width="100px" id="foto1a">
 
+                <br>
                 <input type="submit" value="CADASTRAR">
 
             </form>
+            <script>
+                    function foto1(){
+                        document.getElementById("foto1a").src = "img/" (document.getElementById("img1").value).slice(12);
+                    }
+            </script>
         </div>
 </body>
 </html>

@@ -22,10 +22,10 @@ $sql = "SELECT * FROM produtos WHERE pro_id = $id";
 $resultado = mysqli_query($link, $sql);
 
 while($tbl = mysqli_fetch_array($resultado)){
-    $nome = $tbl[1];
-    $descricao = $tbl[2];
-    $quantidade = $tbl[3];
-    $preco = $tbl[4];
+    $nome = $tbl[4];
+    $descricao = $tbl[1];
+    $quantidade = $tbl[2];
+    $preco = $tbl[3];
     $ativo = $tbl[5];
 
 }
@@ -43,6 +43,7 @@ while($tbl = mysqli_fetch_array($resultado)){
     <title>ALTERAR PRODUTO</title>
 </head>
 <body>
+<a href="homesistema.html"><input type="button" id="menuhome" value="HOME SISTEMA"></a>
     <div>
         <form action="alteraproduto.php" method="post">
             <input type="hidden" name="id" value="<?=$id?>">
@@ -55,7 +56,7 @@ while($tbl = mysqli_fetch_array($resultado)){
             <label>PRECO</label>
             <input type="number" name="preco", value="<?=$preco?>" required>
             <br></br>
-            <label>STATUS: <?=$check = ($ativo == 's')?"ATIVO":"INATIVO"?></label>
+            <label>STATUS: <?=$check = ($ativo == 's')?"ATIVO":"INATIVO"?></label><br>
 
             <input type="radio" name="ativo" value="s" <?=$ativo == "s"?"checked":""?>>ATIVO<br>
             <input type="radio" name="ativo" value="n" <?=$ativo == "n"?"checked":""?>>INATIVO
