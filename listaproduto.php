@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="newestilo.css">
     <title>LISTA PRODUTO</title>
 </head>
 <body>
@@ -51,6 +51,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                     <th>DESCRIÇÃO</th>
                     <th>QUANTIDADE</th>
                     <th>PRECO</th>
+                    <th>IMAGEM</th>
                     <th>ALTERAR</th>
                     <th>ATIVO</th>
             </tr>
@@ -65,6 +66,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         <td><?= $tbl[2]?></td>
                         <!-- linha abaixo converte formato da $tbl[3] usando 2 casas após a virgula e aplicando , ao lugar de ponto -->
                         <td>R$ <?= number_format($tbl[3],2,',','.')?></td>
+                        <td><div><img src="/img/<?=$tbl[6]?>"width="100"></div></td>
                         <td><a href="alteraproduto.php?id=<?= $tbl[0]?>"><input type="button" value="ALTERAR"></a></td>
                         <!-- tbl[5] verifica se é s que está vindo do banco de dados, se sim. Escreva SIM senão escreva NÃO -->
                         <td><?= $check = ($tbl[5] == 's')?"SIM":"NÃO"?></td>
