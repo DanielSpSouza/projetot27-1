@@ -27,7 +27,6 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 }
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +56,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     <!-- FIM DO SCRIPT PARA MOSTRA SENHA -->
 
         <form action="logincliente.php" method="POST">
-            <h1>LOGIN DE USUARIO</h1>
+            <h1>LOGIN DE CLIENTE</h1>
             <input type="text" name="cpf" id="nome" placeholder="CPF">
             <p></p>
             <input type="password" id="senha" name="password" placeholder="Senha">

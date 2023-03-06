@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </head>
 <body>
     <a href="homesistema.html"><input type="button" id="menuhome" value="HOME SISTEMA"></a>
-    <form action="listaproduto.php" method="post">
+    <form action="listaproduto.php" method="post" class="lista">
         <!-- Botões que validam se o produto é listado somente ativos ou inativos-->
         <!-- onclick="submit()" é um javascript que já faz um submit na página usando o navegador como recurso -->
         <!-- <//?=$ativo== Valida se o radio foi acionado (checked) e mantém a escolha se não ele traz em branco-->

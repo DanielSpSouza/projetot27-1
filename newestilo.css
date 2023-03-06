@@ -51,7 +51,10 @@ body {
     background-color: #ab98af;
   }
 
-  form {
+
+  /* AJUSTAR O FORM DA TRAQUEIRA */
+  form[method="post"] {
+    
     background-color: rgb(205, 191, 211);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
