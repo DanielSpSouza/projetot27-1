@@ -7,11 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $quantidade = $_POST["quantidade"];
     $preco = $_POST["preco"];
     $foto1 = $_POST["foto1"];
-    #$foto2 = $_POST["foto2"];
+    
 
-    if ($foto1 == "")
-        $img = "semfoto.png";
-
+    
     #VERIFICA SE PRODUTO ESTÁ CADASTRADO
     $sql = "SELECT COUNT(pro_id) FROM produtos WHERE pro_nome = '$nome'";
     $resultado = mysqli_query($link, $sql);
@@ -19,7 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     while ($tbl = mysqli_fetch_array($resultado)) {
         $cont = $tbl[0];
         if ($cont == 0) {
-            $sql = "INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo, imagem1) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's', '$foto1')";
+            #$sql = "INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo, imagem1) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's', '$foto1')";
+            $sql = "INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's')";
+
             mysqli_query($link, $sql);
             echo($cont);
             header("Location: listaproduto.php");
