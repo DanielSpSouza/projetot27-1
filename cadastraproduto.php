@@ -6,8 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $descricao = $_POST["descricao"];
     $quantidade = $_POST["quantidade"];
     $preco = $_POST["preco"];
-    $foto1 = $_POST["foto1"];
     
+    #CRIPTOGRAFA A FOTO PARA O BANCO DE DADOS
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        $imagem_temp = $_FILES['imagem']['tmp_name'];
+        $imagem = file_get_contents($imagem_temp);
+        $imagem_base64 = base64_encode($imagem);
+    };
 
     
     #VERIFICA SE PRODUTO ESTÁ CADASTRADO
@@ -17,11 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     while ($tbl = mysqli_fetch_array($resultado)) {
         $cont = $tbl[0];
         if ($cont == 0) {
-            #$sql = "INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo, imagem1) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's', '$foto1')";
-            $sql = "INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's')";
-
+            $sql = "INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo, imagem1) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's', '$imagem_base64')";
             mysqli_query($link, $sql);
-            echo($cont);
             header("Location: listaproduto.php");
             exit();
             
@@ -46,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <body>
     <a href="homesistema.html"><input type="button" id="menuhome" value="HOME SISTEMA"></a>
     <div>
-        <form action="cadastraproduto.php" method="post">
+        <form action="cadastraproduto.php" method="post" enctype="multipart/form-data">
             <label>NOME</label>
             <input type="text" name="nome">
             <br></br>
@@ -63,9 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <!-- BLOCO DE CÓDIGO NOVO -->
             <label>IMAGEM</label>
             <!-- <input type="file" name="foto1" id="img1" onchange="foto1()"> -->
-            <input type="file" name="foto1" id="img1">
-            <img src="img/$foto1.png" width="100px" id="foto1a">
-
+            <input type="file" name="imagem" id="imagem">
             <br>
             <input type="submit" value="CADASTRAR">
 
