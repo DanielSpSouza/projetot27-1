@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($cont == 0) {
             $sql = "INSERT INTO produtos(pro_nome, pro_descricao, pro_quantidade, pro_preco, pro_ativo, imagem1) VALUES('$nome', '$descricao', '$quantidade', '$preco', 's', '$imagem_base64')";
             mysqli_query($link, $sql);
+            
             header("Location: listaproduto.php");
             exit();
             

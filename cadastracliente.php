@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     else{
         $sql = "INSERT INTO clientes (cli_nome, cli_cpf, cli_senha, cli_datanasc, cli_telefone, cli_logradouro, cli_numero, cli_cidade, cli_ativo) VALUES('$nome','$cpf', '$senha', STR_TO_DATE('$datanasc','%Y-%m-%d'), '$telefone', '$logradouro','$numero','$cidade', 's')";
         mysqli_query($link,$sql);
-        echo($datanasc);
         header("Location: listacliente.php");
     }
 }
