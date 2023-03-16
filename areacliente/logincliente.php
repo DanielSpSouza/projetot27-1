@@ -16,6 +16,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     while($tbl = mysqli_fetch_array($resultado)){
         $cont = $tbl[0]; #armazena o valor da coluna no caso a [0]
     }
+
+    #VALI
+
+
+
     #Verifica se o resultado do cont é 0 ou 1
     #Se 0 o Usuario ou Senha estão incorretos
     if($cont==1){
