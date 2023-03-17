@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="newestilo.css">
-    <title>CADASTRAR CLIENTES</title>
+    <title>CADASTRO DE CLIENTES</title>
 </head>
 
 <body>
@@ -68,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <label>CIDADE</label>
             <input type="text" name="cidade">
             <br></br>
-           
             <br>
             <input type="submit" value="CADASTRAR">
 
