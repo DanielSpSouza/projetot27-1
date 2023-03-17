@@ -1,8 +1,8 @@
 <?php
 #Traz arquivo de conexão do banco
 include("../conectadb.php");
-
 session_start();
+
 #Carrega a Página trazendo produtos com s (Produtos ATIVOS)
 $sql = "SELECT * FROM produtos WHERE pro_ativo = 's'";
 $resultado = mysqli_query($link, $sql);
@@ -20,6 +20,8 @@ $ativo = "s";
     <title>LOJA DO PROJETO</title>
 </head>
 <body>
+    <!-- COLETA NOME DO USUARIO NA VARIAVEL DE SESSÃO -->
+    <h1 style="background-color: whitesmoke;">BOM DIA <?=$_SESSION['nomecliente'];?></h1>
     <a href="logincliente.php"><input type="button" value="LOGIN"></a>
     <a href="clientecadastra.php"><input type="button" value="CADASTRAR"></a>
     <form action="loja.php" method="post">
